@@ -8,7 +8,7 @@ class SirketSerializer(serializers.Serializer):
     sirket_tel = serializers.CharField(required=False, allow_null=True, allow_blank = True)
     sirket_email = serializers.EmailField(required=False, allow_null=True, allow_blank = True)
     sirket_web = serializers.URLField(required=False, allow_null=True, allow_blank = True)
-    sirket_profil_fotografi = serializers.CharField(required=False, allow_null=True)
+    sirket_profil_fotografi = serializers.CharField(required=False, allow_null=True, allow_blank = True)
 
     class Meta:
         model = Sirket
@@ -37,7 +37,7 @@ class SirketSerializer(serializers.Serializer):
 class KisiSerializer(serializers.ModelSerializer):
     sirketler = serializers.PrimaryKeyRelatedField(many=True, queryset=Sirket.objects.all(), required=False)
     kisi_email = serializers.EmailField(required=False, allow_null = True, allow_blank = True)
-    profil_fotografi = serializers.CharField(required=False, allow_null = True)
+    profil_fotografi = serializers.CharField(required=False, allow_null = True, allow_blank = True)
     
     class Meta:
         model = Kisi
